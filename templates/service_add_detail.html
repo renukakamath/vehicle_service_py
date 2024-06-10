@@ -1,0 +1,61 @@
+{% include 'serviceheader.html' %}
+<br><br><br>
+<center>
+<form method="post">
+<h1>UPDATE SERVICE DETAILS</h1>
+
+	<table class="table" style="width: 500px">
+	
+		
+		<tr>
+			<th>Details</th>
+			<td><textarea name="detail" required="" class="form-control"></textarea> </td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center"><input type="submit" name="submit" value="submit" class="btn btn-primary" ></td>
+		</tr>
+	</table>
+		
+
+
+
+</form>
+</center>
+</section>	
+</body>
+
+
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+<center>
+<h2> Vehicle</h2>
+
+	 <table class="table" style="width: 200px">
+	 	<tr>
+	 		<th>Sl.no</th>
+	 		
+	 		<th>Detail</th>
+	 	
+	 		{% for row in data['staff'] %}
+	 		<tr>
+	 			<td>{{loop.index}}</td>
+	 			
+	 			<td>{{row['detail']}}</td>
+	 			
+	 			
+	 			<td><a href="?action=delete&id={{row['service_detail_id']}}" class="btn btn-danger">Delete</a></td>
+	 			
+	 		</tr>
+	 		{% endfor %}
+	 	</tr>
+	 </table>
+
+</center>
+
+
+{% include 'footer.html'%}

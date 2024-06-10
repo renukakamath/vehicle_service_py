@@ -1,0 +1,59 @@
+{%include 'staffheader.html'%}
+<br><br><br><br>
+
+	<center>	
+<form method="post" enctype="multipart/form-data">
+		<table class="table" style="width:  500px;">
+			<h1>UPLOAD FILE</h1>
+
+		<tr>
+			<th> Detail</th>
+			<td><input type="text" name="tys" class="form-control" ></td>
+		</tr>
+		<tr>
+			<th> File</th>
+			<td><input type="file" name="img" class="form-control" ></td>
+		</tr>
+			
+		<tr>
+			<td colspan="2" align="center"><input type="submit" name="submit" value="ADD" class="btn btn-primary"></td>
+		</tr>
+
+
+		</table>
+	</form>
+</center>
+
+
+		
+	<center>	<h1>FILE ADDED </h1>
+		<table class="table" style="width: 500px;" >
+			<tr>
+				<th>SL.NO</th>
+				<th>FILE</th>
+				<th>DETAIL</th>
+				
+				
+				<TH>DELETE</TH>
+			</tr>
+			{% for row in data['imagesss'] %}
+			<tr>
+				<td>{{loop.index}}</td>
+				<td>{{row['type']}}</td>
+				<td><a href="/{{row['file']}}" class="btn btn-primary">CLICK HERE</a></td>
+				
+				
+
+				
+				<td><a href="?action=delete&id={{ row['upload_id'] }}" class="btn btn-danger" >REMOVE</a></td>
+				
+			</tr>
+			{% endfor%}
+		</table>
+		
+		
+	
+		
+	</form>
+</center>
+{%include 'footer.html'%}

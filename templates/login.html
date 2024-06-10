@@ -1,0 +1,61 @@
+{%include 'publicheader.html'%}
+
+ <!-- banner -->
+      <section class="banner_main">
+         <div id="banner1" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+               <li data-target="#banner1" data-slide-to="0" class="active"></li>
+               <li data-target="#banner1" data-slide-to="1"></li>
+               <li data-target="#banner1" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+               <div class="carousel-item active">
+                  <div class="container-fluid">
+                     <div class="carousel-caption">
+                        <div class="row">
+                           <div class="col-md-6">
+                              <div class="text-bg">
+                            <center>
+                               <form method="post">
+                                   <h1 style="font: italic; font-size: 50px;color: white;">Login</h1>
+                                   <table class="table" style="width:500px;color: white;">
+                                       <tr>
+                                           <th>username</th>
+                                           <td><input type="text" class="form-control" name="username"></td>
+                                       </tr>
+                                       <tr>
+                                           <th>Password</th>
+                                           <td><input type="password" class="form-control" name="password"></td>
+                                       </tr>
+                                       <tr>
+                                           <td align="center"  colspan="2"><input type="submit" class="btn btn-outline-success" value="Login" name="submit"></td>
+                                       </tr>
+                                   </table>
+                               </form>
+                            </center>
+                              </div>
+                           </div>
+                           <div class="col-md-6">
+                              <div class="text_img">
+                                 <figure><img src="/static/images/car.png" alt="#"/></figure>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+             
+            </div>
+            <a class="carousel-control-prev" href="#banner1" role="button" data-slide="prev">
+            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+            </a>
+            <a class="carousel-control-next" href="#banner1" role="button" data-slide="next">
+            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </a>
+         </div>
+      </section>
+      <!-- end banner -->
+
+{%include 'footer.html'%}

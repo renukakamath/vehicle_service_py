@@ -1,0 +1,122 @@
+{% include 'adminheader.html' %}
+
+<center>
+<form method="post">
+{% if data['updater'] %}
+<h1>UPDATE SERVICE</h1>
+
+	<table class="table" style="width: 400px">
+		<tr>
+			<th>Service Name</th>
+			<td><input type="text" name="fname" value="{{data['updater'][0]['name']}}" required="" class="form-control"></td>
+		</tr>
+		<!-- <tr>
+			<th>lastname</th>
+			<td><input type="text" name="lname" value="{{data['updater'][0]['lname']}}"></td>
+		</tr> -->
+		<tr>
+			<th>text</th>
+			<td><input type="text" name="place" value="{{data['updater'][0]['place']}}" required="" class="form-control"></td>
+		</tr>
+		<tr>
+			<th>phone</th>
+			<td><input type="text" name="phone" pattern="[0-9]{10}" value="{{data['updater'][0]['phone']}}" required="" class="form-control"></td>
+		</tr>
+		<tr>
+			<th>email</th>
+			<td><input type="text" name="email" pattern=".+gmail/.com" value="{{data['updater'][0]['email']}}" required="" class="form-control"></td>
+		</tr>
+		
+		<tr>
+			<td colspan="2" align="center"><input type="submit" name="update" value="update" class="btn btn-primary"></td>
+		</tr>
+	</table>
+		
+
+{% else %}
+<br><br><br>
+<h1>MANAGE SERVICE</h1>
+
+	<table class="table" style="width: 500px">
+		<tr>
+			<th>Service Name</th>
+			<td><input type="text" name="fname" required="" class="form-control"></td>
+		</tr>
+		<!-- <tr>
+			<th>Lastname</th>
+			<td><input type="text" name="lname" required="" class="form-control"></td>
+		</tr> -->
+		<tr>
+			<th>Place</th>
+			<td><input type="text" name="place" required="" class="form-control"></td>
+		</tr>
+		<tr>
+			<th>Phone</th>
+			<td><input type="text" name="phone" pattern="[0-9]{10}" maxlength="10" required="" class="form-control"></td>
+		</tr>
+		<tr>
+			<th>Email</th>
+			<td><input type="email" name="email" required="" class="form-control"></td>
+		</tr>
+		<tr>
+			<th>Username</th>
+			<td><input type="text" name="uname" required="" class="form-control"></td>
+		</tr>
+		<tr>
+			<th>Password</th>
+			<td><input type="password" name="pas" required="" class="form-control"></td>
+		</tr>
+		
+		<tr>
+			<td colspan="2" align="center"><input type="submit" name="submit" value="submit" class="btn btn-primary" ></td>
+		</tr>
+	</table>
+		
+
+{% endif %}
+
+
+</form>
+</center>
+</section>	
+</body>
+
+
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+<center>
+<h2> SERVICE</h2>
+
+	 <table class="table" style="width: 200px">
+	 	<tr>
+	 		<th>Sl.no</th>
+	 		<th>Service Name</th>
+	 		
+	 		<th>Place</th>
+	 		<th> Phone</th>
+	 		<th> Email</th>
+	 		{% for row in data['service'] %}
+	 		<tr>
+	 			<td>{{loop.index}}</td>
+	 			<td>{{row['name']}}</td>
+	 			
+	 			<td>{{row['place']}}</td>
+	 			<td>{{row['phone']}}</td>
+	 			<td>{{row['email']}}</td>
+	 			
+	 			<td><a href="?action=delete&id={{row['service_id']}}" class="btn btn-danger">Delete</a></td>
+	 			<td><a href="?action=update&id={{row['service_id']}}" class="btn btn-warning">Update</a></td>
+	 		</tr>
+	 		{% endfor %}
+	 	</tr>
+	 </table>
+
+</center>
+
+
+{% include 'footer.html'%}

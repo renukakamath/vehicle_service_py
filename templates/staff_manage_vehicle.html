@@ -1,0 +1,109 @@
+{% include 'staffheader.html' %}
+<br><br><br>
+<center>
+<form method="post">
+{% if data['updater'] %}
+<h1>UPDATE VEHICLE</h1>
+
+	<table class="table" style="width: 400px">
+		<tr>
+			<th>Vehicle Name</th>
+			<td><input type="text" name="fname" value="{{data['updater'][0]['vehicle']}}" required="" class="form-control"></td>
+		</tr>
+		<!-- <tr>
+			<th>lastname</th>
+			<td><input type="text" name="lname" value="{{data['updater'][0]['lname']}}"></td>
+		</tr> -->
+		<tr>
+			<th>Details</th>
+			<td><textarea name="detail" required="" class="form-control" value="{{data['updater'][0]['detail']}}"></textarea> </td> </td>
+		</tr>
+		
+		<tr>
+			<td colspan="2" align="center"><input type="submit" name="update" value="update" class="btn btn-primary"></td>
+		</tr>
+	</table>
+		
+
+{% else %}
+<br><br><br>
+<h1>MANAGE VEHICLE</h1>
+
+	<table class="table" style="width: 500px">
+		<tr>
+			<th>Customer</th>
+			<td>
+				<select name="user" required="" class="form-control">
+					<option value="">Select---</option>
+					{%for row in data['us']%}
+					<option value="{{row['user_id']}}">{{row['fname']}} {{row['lname']}}</option>
+					{%endfor%}
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<th>Vehicle Name</th>
+			<td><input type="text" name="vehicle" required="" class="form-control"></td>
+		</tr>
+		<!-- <tr>
+			<th>Lastname</th>
+			<td><input type="text" name="lname" required="" class="form-control"></td>
+		</tr> -->
+		
+		<tr>
+			<th>Details</th>
+			<td><textarea name="detail" required="" class="form-control"></textarea> </td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center"><input type="submit" name="submit" value="submit" class="btn btn-primary" ></td>
+		</tr>
+	</table>
+		
+
+{% endif %}
+
+
+</form>
+</center>
+</section>	
+</body>
+
+
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+<center>
+<h2> Vehicle</h2>
+
+	 <table class="table" style="width: 200px">
+	 	<tr>
+	 		<th>Sl.no</th>
+	 		<th>Vehicle Name</th>
+	 		<th> Customer</th>
+	 		<th>Detail</th>
+	 	
+	 		{% for row in data['staff'] %}
+	 		<tr>
+	 			<td>{{loop.index}}</td>
+	 			<td>{{row['vehicle']}}</td>
+	 			
+	 			<td>{{row['fname']}} {{row['lname']}}</td>
+	 			<td>{{row['detail']}}</td>
+	 			
+	 			
+	 			<td><a href="?action=delete&id={{row['vehicle_id']}}" class="btn btn-danger">Delete</a></td>
+	 			<td><a href="?action=update&id={{row['vehicle_id']}}" class="btn btn-warning">Update</a></td>
+	 			<td><a href="staff_upload?id={{row['vehicle_id']}}" class="btn btn-info">Upload</a></td>
+	 		</tr>
+	 		{% endfor %}
+	 	</tr>
+	 </table>
+
+</center>
+
+
+{% include 'footer.html'%}

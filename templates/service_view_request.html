@@ -1,0 +1,36 @@
+{%include 'serviceheader.html'%}
+
+<br><br><br><br><br>
+<center>
+	<h1>Requests</h1>
+	<table class="table" style="width:600px">
+		<tr>
+			<th>Slno</th>
+			<th>Vehicle</th>
+			<th>Date</th>
+			<th>Time</th>
+			<th>Status</th>
+			<th></th>
+			<th></th>
+		</tr>
+		{%for row in data['req']%}
+		<tr>
+			<td>{{loop.index}}</td>
+			<td>{{row['vehicle']}}</td>
+			<td>{{row['date']}}</td>
+			<td>{{row['time']}}</td>
+			{%if row['status']=="pending"%}
+			<td><a href="?action=accept&id={{row['request_id']}}" class="btn btn-success">Accept</a></td>
+			<td><a href="?action=reject&id={{row['request_id']}}" class="btn btn-danger">Reject</a></td>
+			{%else%}
+			
+			<td>{{row['status']}}</td>
+			<td><a href="service_view_detail?id={{row['vehicle_id']}}" class="btn btn-warning">Vehicle details</a></td>
+			<td><a href="service_add_detail?id={{row['request_id']}}" class="btn btn-info">Service Details</a></td>
+			{%endif%}
+		</tr>
+		{%endfor%}
+	</table>
+</center>
+
+{%include 'footer.html'%}
